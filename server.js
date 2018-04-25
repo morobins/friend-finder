@@ -1,16 +1,26 @@
 // Your server.js file should require the basic npm packages we've used in class: express, body-parser and path.
 var express = require("express");
 var bodyParser = require("body-parser");
-var path = require("path");
 
 
-// Determine the user's most compatible friend using the following as a guide:
+// initialize our server
+var app = express();
 
-// Convert each user's results into a simple array of numbers (ex: [5, 1, 4, 4, 5, 1, 2, 5, 4, 1]).
-// With that done, compare the difference between current user's scores against those from other users, question by question. Add up the differences to calculate the totalDifference.
-// Example:
-// User 1: [5, 1, 4, 4, 5, 1, 2, 5, 4, 1]
-// User 2: [3, 2, 6, 4, 5, 1, 2, 5, 4, 1]
-// Total Difference: 2 + 1 + 2 = 5
-// Remember to use the absolute value of the differences. Put another way: no negative solutions! Your app should calculate both 5-3 and 3-5 as 2, and so on.
-// The closest match will be the user with the least amount of difference.
+// Define port
+var PORT = process.env.PORT || 3000;
+
+// Set up middleware (body-parser)
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+// Set up routes
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
+
+
+// Turn on server
+app.listen(PORT, function() {
+  console.log("Server running on port: " + PORT);
+});
+
+
