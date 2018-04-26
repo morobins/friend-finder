@@ -148,22 +148,22 @@ $("#submit").on("click", function (event){
     name: $('#name').val().trim(),
     photo: $('#photo').val().trim(),
     scores: [
-      $('#res1').val().trim(),
-      $('#res2').val().trim(),
-      $('#res3').val().trim(),
-      $('#res4').val().trim(),
-      $('#res5').val().trim(),
-      $('#res6').val().trim(),
-      $('#res7').val().trim(),
-      $('#res8').val().trim(),
-      $('#res9').val().trim(),
-      $('#res10').val().trim()
+      parseInt($('#res1').val()),
+      parseInt($('#res2').val()),
+      parseInt($('#res3').val()),
+      parseInt($('#res4').val()),
+      parseInt($('#res5').val()),
+      parseInt($('#res6').val()),
+      parseInt($('#res7').val()),
+      parseInt($('#res8').val()),
+      parseInt($('#res9').val()),
+      parseInt($('#res10').val())
     ]
   };
  
   $.post("/api/friends", newFriend)
         .then(function (data) {
-          console.log(data);
+          // console.log(data);
         });
  
 

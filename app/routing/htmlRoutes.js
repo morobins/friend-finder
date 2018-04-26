@@ -1,5 +1,6 @@
 var path = require("path");
 
+//module.exports exports this to server.js
 module.exports = function (app) {
   //home route
   app.get('/', function (req, res) {

@@ -6,6 +6,9 @@ var bodyParser = require("body-parser");
 // initialize our server
 var app = express();
 
+//allows my image to be read as a path instead of a route
+app.use(express.static("public"));
+
 // Define port
 var PORT = process.env.PORT || 3000;
 
@@ -14,6 +17,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // Set up routes
+//this executes a funtion ("function")(runsfunction)
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
 
