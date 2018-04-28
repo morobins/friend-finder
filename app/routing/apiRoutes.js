@@ -24,30 +24,28 @@ module.exports = function (app) {
     for (var i = 0; i < surveyScores.length; i++) {
       newScore += parseInt(surveyScores[i]);
     }
-
     console.log("New Friends score is: " + newScore);
 
-
-    //trying to get the totals of each of the friends scores
+    //scores for each existing friend
     for (var i = 0; i < friends.length; i++) {
       var comparisonScores = friends[i].scores;
-      var userTotals = 0;
-      //this doesn't work
-      for (var i = 0; i < comparisonScores.length; i++) {
-        userTotals += parseInt(comparisonScores[i]);
+      console.log('Comparison scores are: ' + comparisonScores);
+    }
+    console.log('Comp array is: ' + comparisonArr);
+
+    //loop through friend to get the difference of the friends scores 
+    //ASK ABOUT THIS - how have the numbers been added up in order to be subtracted from each other
+    for (var i = 0; i < friends.length; i++) {
+      var totalDifference = 0;
+      for (var k = 0; k < 10; k++) {
+        scoreDiff = Math.abs(friends[i].scores[k] - newFriend.scores[k]);
+        totalDifference += scoreDiff;
       }
-      // comparisonScores += parseInt(friends[i].scores[i]);
-      console.log(userTotals);
+
+      console.log("Total Difference is: " + totalDifference);
     }
 
-    function calculateTotals() {
-      userTotals += parseInt(comparisonScores[i]);
-    }
 
-    // var savedFriendsScores = friends[i].scores;
-    // console.log(friends[i].scores);
-
-    // console.log(newFriend);
     //add newFriend to the friends array
     friends.push(newFriend);
 
