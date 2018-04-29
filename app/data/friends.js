@@ -1,7 +1,7 @@
 //exports the data to apiRoutes
 module.exports = [{
     "name": "Monique",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "photo": "https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/12799303_10106060112188479_6441093344380540752_n.jpg?_nc_cat=0&oh=3560f08ff3930cba5fad0de82c74cefc&oe=5B5AB525",
     "scores": [
       3,
       1,

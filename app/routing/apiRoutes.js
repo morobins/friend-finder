@@ -15,6 +15,7 @@ module.exports = function (app) {
     var newFriend = req.body;
     var newFriendName = req.body.name;
     var newFriendPhoto = req.body.photo;
+    var differencesArr = [];
 
     //newFriend scores
     var surveyScores = req.body.scores;
@@ -38,9 +39,15 @@ module.exports = function (app) {
         compTotals += parseInt(comparisonScores[j]);
         var scoreDiff = Math.abs(compTotals - newScore);
       }
+      differencesArr.push(scoreDiff);
+      var minDiff = Math.min.apply(null, differencesArr);
+
       console.log('Comp totals are: ' + compTotals);
       console.log("The score diffs are: " + scoreDiff);
+      console.log("The differences array: " + differencesArr);
+      console.log("The min diff is: " + minDiff);
     }
+
     // console.log(comparisonScoresArr);
 
     // for (var i = 0; i < friends.length; i++) {
