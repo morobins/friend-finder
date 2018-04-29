@@ -132,8 +132,29 @@
             <option value="5">5 (Strongly agree)</option>
         </select>
       </div>
-      <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+      <button id="submit" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#resultsModal">Submit</button>
     </form>
+
+    <div id="resultsModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- <button type="button" class="close" data-dismiss="modal">Close</button> -->
+                        <h2 class="modal-title">Your New Best Friend is...</h2>
+                    </div>
+                    <div class="modal-body">
+                        <h2 id="bestFriend"></h2>
+                        <img id="friendImage" src="" alt="" width="200">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
   </div>
 <!-- Once you've found the current user's most compatible friend, display the result as a modal pop-up.
 
@@ -162,8 +183,13 @@ $("#submit").on("click", function (event){
   };
  
   $.post("/api/friends", newFriend)
-        .then(function (data) {
-          // console.log(data);
+        .done(function (data) {
+          console.log(data);
+          console.log("name is: " + data.name)
+          $("#resultsModal").modal('toggle');
+          $("#bestFriend").text(data.name);
+          $('#friendImage').attr("src", data.photo);
+
         });
  
 

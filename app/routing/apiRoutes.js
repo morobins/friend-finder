@@ -50,6 +50,7 @@ module.exports = function (app) {
       console.log("The differences array: " + differencesArr);
 
       //to match the friend
+      
       friendsListArr.push({
         name: friends[i].name,
         photo: friends[i].photo,
@@ -104,7 +105,7 @@ module.exports = function (app) {
     friends.push(newFriend);
 
     //pass the newFriend into the apiRoutes
-    res.json(newFriend);
+    res.json(bestFriend);
 
 
 
