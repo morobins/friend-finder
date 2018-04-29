@@ -16,6 +16,7 @@ module.exports = function (app) {
     var newFriendName = req.body.name;
     var newFriendPhoto = req.body.photo;
     var differencesArr = [];
+    var friendsListArr = [];
 
     //newFriend scores
     var surveyScores = req.body.scores;
@@ -40,14 +41,40 @@ module.exports = function (app) {
         var scoreDiff = Math.abs(compTotals - newScore);
       }
       differencesArr.push(scoreDiff);
+
       var minDiff = Math.min.apply(null, differencesArr);
+      console.log("The min diff is: " + minDiff);
 
       console.log('Comp totals are: ' + compTotals);
       console.log("The score diffs are: " + scoreDiff);
       console.log("The differences array: " + differencesArr);
-      console.log("The min diff is: " + minDiff);
+
+      //to match the friend
+      friendsListArr.push({
+        name: friends[i].name,
+        photo: friends[i].photo,
+        scoreDiff: scoreDiff
+      });
+
+      if (minDiff === friendsListArr[i].scoreDiff) {
+        var bestFriend = friendsListArr[i];
+      }
+      console.log("Your best friend is: " + JSON.stringify(bestFriend));
     }
 
+
+
+
+    console.log("The friends list arr: " + JSON.stringify(friendsListArr));
+
+    // for (var m = 0; m < differencesArr.length; m++){
+    //   if (minDiff === differencesArr[m]) {
+    //     bestFriend.push(friends[i]);
+    //   }
+
+    // }
+
+    // console.log("This is the best friend: " + bestFriend);
     // console.log(comparisonScoresArr);
 
     // for (var i = 0; i < friends.length; i++) {
@@ -61,11 +88,7 @@ module.exports = function (app) {
     // };
 
 
-    // friendsListArr.push({
-    //   name: friends[i].name,
-    //   photo: friends[i].photo,
-    //   scoreDiff: totalDifference
-    // });
+
 
 
     // console.log("New Friends List: " + friendsListArr);
