@@ -30,20 +30,44 @@ module.exports = function (app) {
     for (var i = 0; i < friends.length; i++) {
       var comparisonScores = friends[i].scores;
       console.log('Comparison scores are: ' + comparisonScores);
-    }
-    console.log('Comp array is: ' + comparisonArr);
 
-    //loop through friend to get the difference of the friends scores 
-    //ASK ABOUT THIS - how have the numbers been added up in order to be subtracted from each other
-    for (var i = 0; i < friends.length; i++) {
-      var totalDifference = 0;
-      for (var k = 0; k < 10; k++) {
-        scoreDiff = Math.abs(friends[i].scores[k] - newFriend.scores[k]);
-        totalDifference += scoreDiff;
+
+      var compTotals = 0;
+      // var compArr = [];
+      for (var j = 0; j < 10; j++) {
+        compTotals += parseInt(comparisonScores[j]);
+        var scoreDiff = Math.abs(compTotals - newScore);
       }
-
-      console.log("Total Difference is: " + totalDifference);
+      console.log('Comp totals are: ' + compTotals);
+      console.log("The score diffs are: " + scoreDiff);
     }
+    // console.log(comparisonScoresArr);
+
+    // for (var i = 0; i < friends.length; i++) {
+    //   var totalDifference = 0;
+    //   for (var k = 0; k < 10; k++) {
+    //     var scoreDiff = Math.abs(friends[i].scores[k] - newFriend.scores[k]);
+    //     totalDifference += scoreDiff;
+
+    //   }
+    //   console.log("Total Difference is: " + totalDifference);
+    // };
+
+
+    // friendsListArr.push({
+    //   name: friends[i].name,
+    //   photo: friends[i].photo,
+    //   scoreDiff: totalDifference
+    // });
+
+
+    // console.log("New Friends List: " + friendsListArr);
+
+
+
+
+    // var pickedFriend = Math.min(totalDifference);
+    // console.log("Picked Friend is: " + pickedFriend);
 
 
     //add newFriend to the friends array
@@ -52,7 +76,11 @@ module.exports = function (app) {
     //pass the newFriend into the apiRoutes
     res.json(newFriend);
 
+
+
+
   });
-
-
 };
+
+//how do I create an list of the total differences to find the min
+//how does it know which friend the min relates to
