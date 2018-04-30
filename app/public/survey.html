@@ -165,8 +165,7 @@
         <!-- Modal content -->
         <div class="modal-content">
           <div class="modal-header">
-            <!-- <button type="button" class="close" data-dismiss="modal">Close</button> -->
-            <h2 class="modal-title">Your New Best Friend is...</h2>
+            <h2 class="modal-title">Your Soul Friend is...</h2>
           </div>
           <div class="modal-body">
             <h2 id="bestFriend"></h2>
@@ -194,16 +193,16 @@ The modal should display both the name and picture of the closest match. -->
         $(".name-validate").addClass('is-invalid');
         return false;
       } else {
-      $(".name-validate").removeClass('is-invalid');
-    };
+        $(".name-validate").removeClass('is-invalid');
+      };
 
-     if ($(".photo-validate").val() === '') {
+      if ($(".photo-validate").val() === '') {
         validated = false;
         $(".photo-validate").addClass('is-invalid');
         return false;
       } else {
-      $(".photo-validate").removeClass('is-invalid');
-    };
+        $(".photo-validate").removeClass('is-invalid');
+      };
 
       //grab the values from the form and push the response number values into an array
       var newFriend = {

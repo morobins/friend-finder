@@ -50,7 +50,6 @@ module.exports = function (app) {
       console.log("The differences array: " + differencesArr);
 
       //to match the friend
-      
       friendsListArr.push({
         name: friends[i].name,
         photo: friends[i].photo,
@@ -63,55 +62,13 @@ module.exports = function (app) {
       console.log("Your best friend is: " + JSON.stringify(bestFriend));
     }
 
-
-
-
     console.log("The friends list arr: " + JSON.stringify(friendsListArr));
-
-    // for (var m = 0; m < differencesArr.length; m++){
-    //   if (minDiff === differencesArr[m]) {
-    //     bestFriend.push(friends[i]);
-    //   }
-
-    // }
-
-    // console.log("This is the best friend: " + bestFriend);
-    // console.log(comparisonScoresArr);
-
-    // for (var i = 0; i < friends.length; i++) {
-    //   var totalDifference = 0;
-    //   for (var k = 0; k < 10; k++) {
-    //     var scoreDiff = Math.abs(friends[i].scores[k] - newFriend.scores[k]);
-    //     totalDifference += scoreDiff;
-
-    //   }
-    //   console.log("Total Difference is: " + totalDifference);
-    // };
-
-
-
-
-
-    // console.log("New Friends List: " + friendsListArr);
-
-
-
-
-    // var pickedFriend = Math.min(totalDifference);
-    // console.log("Picked Friend is: " + pickedFriend);
-
 
     //add newFriend to the friends array
     friends.push(newFriend);
 
-    //pass the newFriend into the apiRoutes
+    //pass the bestFriend into the apiRoutes
     res.json(bestFriend);
-
-
-
 
   });
 };
-
-//how do I create an list of the total differences to find the min
-//how does it know which friend the min relates to
